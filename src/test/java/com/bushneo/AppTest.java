@@ -1,4 +1,4 @@
-package com.likeneo;
+package com.bushneo;
 
 import static org.junit.Assert.assertTrue;
 

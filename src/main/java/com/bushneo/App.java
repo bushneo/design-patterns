@@ -1,4 +1,4 @@
-package com.likeneo;
+package com.bushneo;
 
 /**
  * Hello world!
