@@ -4,7 +4,7 @@ package com.bushneo.b_factory.demo1;
  * @author bushneo
  * @create 2018-12-30 12:48
  */
-public class Main {
+public class Client {
 
     public static void main(String[] args) {
 //          test1();

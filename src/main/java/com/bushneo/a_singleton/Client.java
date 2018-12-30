@@ -16,7 +16,7 @@ import java.util.concurrent.Executors;
  * @author bushneo
  * @create 2018-12-29 23:14
  */
-public class Main {
+public class Client {
     public static void main(String[] args) {
 
         ExecutorService threadPool = Executors.newFixedThreadPool(50);
