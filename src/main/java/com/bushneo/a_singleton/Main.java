@@ -7,6 +7,7 @@ import com.bushneo.a_singleton.demo3.SingletonDCL;
 import com.bushneo.a_singleton.demo4.SingletonStaticInnerClass;
 import com.bushneo.a_singleton.demo5.SingletonEnum;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -19,8 +20,10 @@ public class Main {
     public static void main(String[] args) {
 
         ExecutorService threadPool = Executors.newFixedThreadPool(50);
-
-        for (int i = 0; i < 3000; i++) {
+        long start = System.currentTimeMillis();
+        int threadNum = 300;
+        final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
+        for (int i = 0; i < threadNum; i++)
             threadPool.execute(new Runnable() {
                 @Override
                 public void run() {
@@ -30,11 +33,19 @@ public class Main {
                     test3();
 //                    test4();
 //                    test5();
+
+                    countDownLatch.countDown();
                 }
             });
 
+        try {
+            //等待子线程执行完
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-
+        long end = System.currentTimeMillis();
+        System.out.println("========总耗时ms=========="+(end-start));
         threadPool.shutdown();
     }
 
