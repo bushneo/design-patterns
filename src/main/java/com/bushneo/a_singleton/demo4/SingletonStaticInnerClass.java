@@ -1,6 +1,8 @@
 package com.bushneo.a_singleton.demo4;
 
 /**
+ * 静态内部类方式
+ * 该写法线程安全，有懒加载效果，并发访问性能优良
  * @author bushneo
  * @create 2018-12-29 23:54
  */
