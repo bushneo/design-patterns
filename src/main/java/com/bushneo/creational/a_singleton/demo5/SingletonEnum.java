@@ -6,12 +6,27 @@ package com.bushneo.creational.a_singleton.demo5;
  * @author bushneo
  * @create 2018-12-30 0:10
  */
-public enum  SingletonEnum {
+public class SingletonEnum {
 
-    INSTANCE;
+    private SingletonEnum(){
 
-    public void sayHello(){
-        System.out.println("hello! my name is neo");
+    }
+
+    private enum Singleton{
+        INSTANCE;
+        private final SingletonEnum instance;
+
+        Singleton() {
+            instance = new SingletonEnum();
+        }
+
+        public SingletonEnum getInstance() {
+            return instance;
+        }
+    }
+
+    public static SingletonEnum getInstance(){
+        return Singleton.INSTANCE.getInstance();
     }
 
 }

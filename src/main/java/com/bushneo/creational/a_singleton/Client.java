@@ -21,7 +21,7 @@ public class Client {
 
         ExecutorService threadPool = Executors.newFixedThreadPool(50);
         long start = System.currentTimeMillis();
-        int threadNum = 300;
+        int threadNum = 3000;
         final CountDownLatch countDownLatch = new CountDownLatch(threadNum);
         for (int i = 0; i < threadNum; i++)
             threadPool.execute(new Runnable() {
@@ -76,9 +76,7 @@ public class Client {
         System.out.println(instance);
     }
     public static void test5() {
-        SingletonEnum instance = SingletonEnum.INSTANCE;
-        SingletonEnum instance2 = SingletonEnum.INSTANCE;
-        System.out.println(instance == instance2);
-        instance.sayHello();
+        SingletonEnum instance = SingletonEnum.getInstance();
+        System.out.println(instance);
     }
 }
