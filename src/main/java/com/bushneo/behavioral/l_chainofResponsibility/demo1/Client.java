@@ -14,7 +14,7 @@ public class Client {
         leader1.setNextLeader(leader2);
         leader2.setNextLeader(leader3);
 
-        LeaveInfo leaveInfo = new LeaveInfo("王麻子", 10, "出国旅游");
+        LeaveInfo leaveInfo = new LeaveInfo("王麻子", 1, "出国旅游");
         leader1.handRequest(leaveInfo);
 
 
